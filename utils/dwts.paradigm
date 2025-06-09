@@ -1,0 +1,59 @@
+# NOTE 14-03-2023: "[^(\s|en|na|es|ens|nas)]" patterns are too laborous --> "[^(\s|en|na|es)]"
+# NOTE 14-03-2023: use negative lookahead: "\b(globalist)((?!\b|en|er|s\b|isk).*?)\b"
+
+# förortsgäng
+förortsgäng -> N1 -> \bförortsgäng(|et|en|s|ets|ens)\b -> förortsgäng
+förortsgäng -> N1C -> \b(förortsgäng)s?((?!\b|et|en|s\b).*?)\b -> förortsgängX
+
+# återvandr
+återvandr -> N1 -> \båtervandring(|en|ar|s|ens|ars|arna|arnas)\b -> återvandring
+återvandr -> N2 -> \båtervandrar(e|en|es|ens|na|nas)\b -> återvandrare
+#återvandr -> N3 -> \båtervandrande(|t|ts|n|ns|rnas) -> återvandrande
+
+återvandr -> N1C -> \b(återvandring)s?((?!\b|en|ar|s\b).*?)\b -> återvandringsX
+återvandr -> N2C -> \b(återvandrar)((?!\b|e\b|en|es|na).*?)\b -> återvandrarX 
+
+återvandr -> V1 -> \båtervandra(\b|r|d|de|t|nde|ndet)\b -> återvandra # incl. particip
+
+# berika
+berika -> N1 -> \bberikar(e|en|na|es|ens|nas)\b -> berikare
+#berika -> N2 -> \berikning(|en|ar|arna|s|ens|ars|arnas)\b -> berikning # OBS! Can be added! (13-04-2023)
+berika -> N1C -> \b(berikar)((?!\b|e\b|en|na|es).*?)\b -> berikareX
+berika -> V1 -> \bberik(a|ar|ad|ade|at|ande|as|ats|ades)\b -> berika # incl. particip
+
+# kulturberika
+berika -> N1 -> \bkulturberikar(e|en|na|es|ens|nas)\b -> kulturberikare
+berika -> N1C -> \b(kulturberikar)((?!\b|e\b|en|na|es).*?)\b -> kulturberikarX
+berika -> V1 -> \bkulturberik(a|ar|ad|ade|at|ande|as|ats|ades)\b -> kulturberika # incl. particip
+
+# ordning_och_reda_i_flyktingpolitiken
+#ordning och reda i flyktingpolitiken -> P1 -> ordning och reda i flyktingpolitiken -> ordning_och_reda_i_flyktingpolitiken
+
+# globalist
+globalist -> N1 -> \bglobalist(|en|er|erna|s|ens|ers|ernas)\b -> globalist
+globalist -> N1C -> \b(globalist)((?!\b|en|er|s\b|isk).*?)\b -> globalistX
+globalist -> A1 -> \bglobalistisk(|a|t|e)\b -> globalistisk
+
+# hjälpa_på_plats
+#hjälpa.*? på plats -> V1 -> \bhjälp(a|er|te|t|as|ande)\b på plats\b -> hjälpa_på_plats # ?hjälpande på plats; hjälpa på platsen?
+#hjälpa.* på plats -> V2 -> \bhjälp(a|er|te|t|as|ande)\b .*? på plats\b -> hjälpa_X_på_plats # !?
+# Passive "s" added 29-03-2023
+
+# självständig_utrikespolitik
+#självständiga? utrikespolitik -> P1 -> \bsjälvständiga? utrikespolitik(|en|s|ens|er|ers|ernas)\b -> självständig_utrikespolitik
+
+
+# re.match(r"\bförortsgäng(|et|en|s|ets|ens)", "förortsgängman")
+# <re.Match object; span=(0, 11), match='förortsgäng'>
+
+# re.match(r"\bförortsgäng(|et|en|s|ets|ens)\b", "förortsgängman")
+# 
+
+# re.match(r"\bförortsgäng(|et|en|s|ets|ens)\b", "förortsgänget")
+# <re.Match object; span=(0, 13), match='förortsgänget'>
+
+# re.match(r"\bförortsgäng[^(|et|en|s|ets|ens)].*", "förortsgängman")
+# <re.Match object; span=(0, 14), match='förortsgängman'>
+
+# re.match(r"\bförortsgäng[^(|et|en|s|ets|ens)].*", "förortsgänget")
+# 

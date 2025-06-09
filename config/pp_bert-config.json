@@ -1,0 +1,10 @@
+{
+    "remove_stopwords": false,
+    "stopwords": null,
+    "remove_numbers": false,
+    "remove_urls": true,
+    "remove_punctuations": false,
+    "min_tok_utterances": null,
+    "lower": false,	
+    "remove_emojis": true 
+}

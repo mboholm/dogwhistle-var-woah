@@ -1,0 +1,18 @@
+{
+    "dwes": [
+        "V1_berika",
+        "N1_berikare",
+        "V1_kulturberika",
+        "N1_kulturberikare",
+        "N1_globalist",
+        "A1_globalistisk",
+        "N1_återvandring",
+        "V1_återvandra",
+        "N1_förortsgäng"
+        ], 
+    "strategies": ["rn", "nno", "top1", "top3", "ms1"],
+    "stopwords": "utils/stopwords-sv.txt",
+    "punct": [",", "?", ".", "!", ";", "”", "\"", ")", ")", "&", "=", "'"],
+    "dfA_path": "../data/replacements/original/panel_wide_onlyreplace.csv",
+    "model": "sentence-bert-swedish-cased"
+}

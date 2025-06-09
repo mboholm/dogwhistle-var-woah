@@ -1,0 +1,11 @@
+{
+	"keywords": [
+		{"keyword": "förortsgäng", "pos": null}, 
+		{"keyword": "återvandr", "pos": null}, 
+		{"keyword": "berika", "pos": null}, 
+		{"keyword": "kulturberika", "pos": null}, 
+		{"keyword": "globalist", "pos": null}
+	],
+	"corpus" : ["flashback-politik"],
+	"corpus_prefix_only" : false
+}
